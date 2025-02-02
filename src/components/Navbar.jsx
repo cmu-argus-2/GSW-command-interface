@@ -1,0 +1,57 @@
+import { useNavigate } from "react-router-dom";
+
+export default function NavBar() {
+  const navigate = useNavigate();
+
+  const handleAddCommand = () => {
+    navigate("/"); // Navigate to the new page
+  };
+
+  const handleViewCommand = () => {
+    navigate("/viewcommandspage"); // Navigate to the new page
+  };
+
+  return (
+    <>
+      <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                {" "}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />{" "}
+              </svg>
+            </div>
+          </div>
+          <a
+            className="btn btn-ghost text-xl"
+            href="https://github.com/cmu-argus-2"
+          >
+            Argus CubeSat
+          </a>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <a onClick={handleAddCommand}>Add Command</a>
+            </li>
+            <li>
+              <a onClick={handleViewCommand}>View Commands</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+}

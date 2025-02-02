@@ -1,0 +1,10 @@
+export enum Sat_ID {
+    SAT_HEARTBEAT = 0x01,
+    SAT_TM_NOMINAL = 0x02,
+    SAT_TM_HAL = 0x03,
+    SAT_TM_STORAGE = 0x04,
+    SAT_TM_PAYLOAD = 0x05,
+    SAT_ACK = 0x0F,
+    SAT_FILE_METADATA = 0x10,
+    SAT_FILE_PKT = 0x20,
+}
