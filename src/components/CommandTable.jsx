@@ -8,7 +8,7 @@ export default function CommandTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/commands");
+        const response = await axios.get("http://172.26.4.66:3000/api/commands");
         setCommandData(response.data);
       } catch (err) {
         setError(err.message);

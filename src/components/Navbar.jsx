@@ -4,11 +4,15 @@ export default function NavBar() {
   const navigate = useNavigate();
 
   const handleAddCommand = () => {
-    navigate("/"); // Navigate to the new page
+    navigate("/");
   };
 
   const handleViewCommand = () => {
-    navigate("/viewcommandspage"); // Navigate to the new page
+    navigate("/viewcommandspage"); 
+  };
+
+  const handleViewReceivedData = () => {
+    navigate("/viewreceiveddatapage"); 
   };
 
   return (
@@ -48,6 +52,9 @@ export default function NavBar() {
             </li>
             <li>
               <a onClick={handleViewCommand}>View Commands</a>
+            </li>
+            <li>
+              <a onClick={handleViewReceivedData}>View Received Data</a>
             </li>
           </ul>
         </div>
