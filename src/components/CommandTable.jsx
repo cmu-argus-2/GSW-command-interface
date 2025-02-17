@@ -8,7 +8,7 @@ export default function CommandTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://172.26.4.66:3000/api/commands");
+        const response = await axios.get("http://localhost:3000/api/commands");
         setCommandData(response.data);
       } catch (err) {
         setError(err.message);
@@ -16,14 +16,18 @@ export default function CommandTable() {
     };
 
     fetchData();
+
+    const interval = setInterval(fetchData, 1000); // Refresh every 5 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <>
       {error && <div className="alert alert-error"> {error} </div>}
 
-      <div className="overflow-x-auto mt-10">
-        <table className="table">
+      <div className="overflow-x-auto">
+        <table className="table table-xs table w-full bg-gray-800 text-white shadow-lg rounded-lg">
           {/* head */}
           <thead>
             <tr>
@@ -51,6 +55,7 @@ export default function CommandTable() {
             }
           </tbody>
         </table>
+        {commandData == [] && <h1 class="justify-self-center text-xs">{"No commands are currently queued"}</h1>}
       </div>
     </>
   );

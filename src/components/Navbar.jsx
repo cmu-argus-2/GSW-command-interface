@@ -50,12 +50,12 @@ export default function NavBar() {
             <li>
               <a onClick={handleAddCommand}>Add Command</a>
             </li>
-            <li>
+            {/* <li>
               <a onClick={handleViewCommand}>View Commands</a>
             </li>
             <li>
               <a onClick={handleViewReceivedData}>View Received Data</a>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>

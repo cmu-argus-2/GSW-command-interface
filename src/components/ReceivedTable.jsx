@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { fetchRxData } from "../helpers/api";
 
 function formatTimestamp(isoString) {
   const date = new Date(isoString);
@@ -22,7 +23,7 @@ export default function ReceivedTable() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://172.26.4.66:3000/api/rx");
+        const response = await axios.get("http://localhost:3000/api/rx");
         setRXData(response.data);
       } catch (err) {
         setError(err.message);
@@ -30,14 +31,17 @@ export default function ReceivedTable() {
     };
 
     fetchData();
-  }, []);
+    // const interval = setInterval(fetchData, 5000); // Refresh every 5 seconds
+
+    // return () => clearInterval(interval);
+  }, [fetchRxData]);
 
   return (
     <>
       {error && <div className="alert alert-error"> {error} </div>}
 
-      <div className="overflow-x-auto mt-10">
-        <table className="table">
+      <div className="overflow-x-auto">
+        <table className="table table-xs table w-full bg-gray-800 text-white shadow-lg rounded-lg">
           {/* head */}
           <thead>
             <tr>

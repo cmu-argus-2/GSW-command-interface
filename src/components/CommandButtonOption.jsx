@@ -27,7 +27,7 @@ export default function CommandButtonOption({ commandList }) {
       };
 
       const response = await axios.post(
-        "http://172.26.4.66:3000/api/commands",
+        "http://localhost:3000/api/commands",
         newCommand,
       );
       console.log("Command Added Successfully: ", response.data);

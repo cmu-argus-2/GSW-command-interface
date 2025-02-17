@@ -4,6 +4,9 @@ import CommandButtonOption from "../components/CommandButtonOption";
 import CommandInput from "../components/CommandInput";
 import NavBar from "../components/Navbar";
 import { Command_ID } from "../constants/command_id";
+import CommandModal from "../components/CommandModal";
+import RxTable from "../components/ReceivedTable";
+import CommandTable from "../components/CommandTable";
 
 export default function AddCommandsPage() {
   // Add more commands here as needed
@@ -77,11 +80,24 @@ export default function AddCommandsPage() {
   return (
     <div data-theme="night">
       <NavBar />
-      <CommandInput />
+      <div class="flex gap-4">
+        <div class="w-1/4">
+        <h1 class="justify-self-center mt-5 font-bold text-2xl">{"Commands"}</h1>
+        <h1 class="justify-self-center text-xs mb-2 ml-2">{"Select a command (and fill in the parameters) for Groundstation to transmit to Space Craft"}</h1>
+        <CommandModal commandList={commandList}/>
+        </div>
+        <div class="w-3/4">
+          <h1 class="justify-self-center mt-10 font-bold text-2xl">{"Commands Queued"}</h1>
+          <CommandTable />
+          <h1 class="justify-self-center mt-10 font-bold text-2xl">{"Received Data"}</h1>
+          <RxTable />
+        </div>
+      </div>
+      {/* <CommandInput />
       <div class="grid md:grid-cols-4 gap-4 justify-items-center">
         <CommandButtonOption commandList={commandList} />
-      </div>
-      <div class="h-70"></div>
+      </div> */}
+      <div class="h-10"></div>
     </div>
   );
 }
